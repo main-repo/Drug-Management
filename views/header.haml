@@ -1,0 +1,34 @@
+!!!
+%html
+	%head
+		%title welcome
+		%link{:href => "mycss.css", :rel => "stylesheet"}/
+	%body{:bgcolor => "#454141"}
+		-if login?
+			%h1 Welcome To The New Page
+			%h1= "Welcome #{@username}"
+			.logoutLblPos
+				%a{:href => "/logout"} Logout
+			.dropdown
+				%button.dropbtn Categories
+				.dropdown-content
+					%a{:href => "/home"} Link1
+					%a{:href => "/home"} Link1
+					%a{:href => "/home"} Link1
+			.dropdown
+				%button.dropbtn Products
+				.dropdown-content
+					%a{:href => "/home"} Link1
+					%a{:href => "/home"} Link1
+			.dropdown
+				%button.dropbtn View Order
+				.dropdown-content
+					%a{:href => "/home"} Link1
+			.dropdown
+				%button.dropbtn Create Order
+				.dropdown-content
+					%a{:href => "/home"} Link1
+					%a{:href => "/home"} Link1
+					%a{:href => "/home"} Link1	
+	
+					

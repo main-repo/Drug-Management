@@ -1,0 +1,25 @@
+!!!
+%html
+	%head
+		%title Drug Management
+		
+		
+
+	%body
+		#header
+			= partial :index
+			%br
+			%br
+			%br
+			.row
+				%form{:action => "/create_cat", :method => "post"}
+					%br
+					.form-group
+						%input#cat_id.form-control{:placeholder => "Category", :type => "text", :required =>"",:name => "catName"}
+						%br
+						%br
+						%button#submit.btn.btn-default{:type => "submit"} Add
+						%button#reset.btn.btn-default{:type => "reset"} Reset
+						- if flash[:error]
+							%p
+								= flash[:error]

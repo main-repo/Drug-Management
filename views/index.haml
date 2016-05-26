@@ -1,16 +1,35 @@
 !!!
 %html
 	%head
-		%title SomeOne's Blog
+		%title welcome
+		
 	%body
-		%header
-			
-			-if login?
-				%h1 Welcome To The New Page
-				%h1= "Welcome #{user}"
+		-if login?
+			%h1= "Welcome #{@username}"
+			.logoutLblPos
 				%a{:href => "/logout"} Logout
-				%br
-				%br
-			
-
-		%footer &copy;2016 Satish
+			.dropdown
+				%button.dropbtn Home
+				.dropdown-content
+					%a{:href => "/index"} Home
+				
+			.dropdown
+				%button.dropbtn Categories
+				.dropdown-content
+					%a{:href => "/create_cat"} Create Category
+					%a{:href => "/viewAllCategories"} View All Category
+					%a{:href => "/home"} Change Name of Category
+			.dropdown
+				%button.dropbtn Products
+				.dropdown-content
+					%a{:href => "/addNewDrug"} Add New Drug
+					%a{:href => "/home"} Update Drug Detail
+			.dropdown
+				%button.dropbtn View Order
+				.dropdown-content
+					%a{:href => "/home"} List All Sale-Order
+			.dropdown
+				%button.dropbtn Create Order
+				
+	
+					
