@@ -1,0 +1,49 @@
+!!!
+%html
+	%head
+		%title Drug Management
+		
+		
+
+	%body
+		#header
+			= partial :index
+			%br
+			%br
+			%br
+			.mycontainer
+				.row
+					%form{:action => "/addNewDrug", :method => "post"}
+						%br
+						.form-group
+							- if flash[:msg]
+								%p
+									= flash[:msg]
+							Categories :
+							%select
+								- @catg.each do |one|
+									%option{:value => "v11"}= one[:catName]
+							%select
+								- @catg.each do |one|
+									%option{:value => "v21"}= one[:catName]
+							%select
+								- @catg.each do |one|
+									%option{:value => "v31"}= one[:catName]
+							%br
+							%br
+							%input#drug_name.form-control{:placeholder => "drug name", :type => "text", :required =>"",:name => "drug_name"}
+							%br
+							%br
+						.form-group
+							%input#cat_id.form-control{:placeholder => "quantity", :type => "text", :required =>"",:name => "quantity"}
+							%br
+							%br
+						.form-group
+							%input#cat_id.form-control{:placeholder => "price", :type => "text", :required =>"",:name => "price"}
+							%br
+							%br
+							%button#submit.btn.btn-default{:type => "submit"} Add
+							%button#reset.btn.btn-default{:type => "reset"} Reset
+							- if flash[:error]
+								%p
+									= flash[:error]
