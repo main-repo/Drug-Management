@@ -6,7 +6,7 @@ end
 
 post "/create_cat" do
   @cat_name = params[:cat]
-  if Category.new(:catName  =>params[:catName]).valid?
+  if Category.new(:category_name  =>params[:category_name]).valid?
     Category.create(params)
     redirect '/create_cat'
        
