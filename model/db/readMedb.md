@@ -16,4 +16,10 @@ Step 2:
   example:
   sequel -m migrations  mysql://root:hiplsql@localhost/drug_management
   (when I was in db directory)
+Step 2:
+  Alternative
 
+
+  Open Rakefile
+  change sequel connect line according to your database.
+  run rackfile as "rake db:migrate
