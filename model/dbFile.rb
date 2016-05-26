@@ -2,7 +2,7 @@
 
 require "rubygems"
 require "sequel"
-DB = Sequel.connect('mysql://root:satyaisical@localhost/drug_management')
+DB = Sequel.connect('mysql://root:hiplsql@localhost/drug_management')
 
 # create an items table
 DB.create_table :users do
