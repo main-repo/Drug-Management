@@ -1,0 +1,13 @@
+require "sinatra"
+require "sinatra/config_file"
+
+
+
+config_file 'path/to/config.yml'
+
+get '/' do
+  @greeting = settings.greeting
+  haml :index
+end
+
+# The rest of your classic application code goes here...
