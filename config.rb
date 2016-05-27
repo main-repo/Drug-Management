@@ -4,6 +4,7 @@ config_file 'config.yml'
 
 enable :partial
 enable :sessions
+
 Sequel.connect(settings.db)
 Sequel::Model.plugin :validation_helpers
 

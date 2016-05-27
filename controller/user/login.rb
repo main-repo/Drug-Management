@@ -3,9 +3,10 @@ get '/index' do
 end
 
 post '/home' do
-
-  @user = User[params[:user]]
-  @username = @user.user
+  
+  @user = User[:email => params[:user]]
+  
+  @username = @user.name
 
   if  BCrypt::Password.new(@user.password) == params[:pass]
     session[:user] = params[:user]

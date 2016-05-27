@@ -1,6 +1,6 @@
 #config.yml
 development:
   greeting: "Welcome to Drug Management DEVELOPMENT application"
-  db: 'mysql://root:hiplsql@localhost/drug_management'
+  db: 'mysql://root:satyaisical@localhost/drug_management'
 test:
   

@@ -20,18 +20,11 @@
 								%p
 									= flash[:msg]
 							Categories :
-							%select
-								- @catg.each do |one|
-									%option{:value => "v11"}= one[:catName]
-							%select
-								- @catg.each do |one|
-									%option{:value => "v21"}= one[:catName]
-							%select
-								- @catg.each do |one|
-									%option{:value => "v31"}= one[:catName]
+							- @catg.each do |one|
+								%input{:name => one[:id] ,:type => "checkbox"}= one[:name]
 							%br
 							%br
-							%input#drug_name.form-control{:placeholder => "drug name", :type => "text", :required =>"",:name => "drug_name"}
+							%input#drug_name.form-control{:placeholder => "drug name", :type => "text", :required =>"",:name => "name"}
 							%br
 							%br
 						.form-group

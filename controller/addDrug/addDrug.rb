@@ -4,9 +4,10 @@ get "/addNewDrug" do
 end
 
 post "/addNewDrug" do
-  @drug = params[:drug_name]
-  if Drug.new(:drug_name =>params[:drug_name]).valid?
-    Drug.create(params)
+  @drug = params[:name]
+  if Drug.new(:name =>params[:name]).valid?
+    Drug.create(:name =>params[:name],:quantity =>params[:quantity],:price =>params[:price])
+   
     flash[:msg] = "Drug with name #{@drug} added successfully"
     redirect '/addNewDrug'
   else

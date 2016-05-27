@@ -1,7 +1,7 @@
 class User < Sequel::Model(:users)
-  unrestrict_primary_key
+  
   def validate
     super
-    validates_unique(:emailID)
+    validates_unique(:email)
   end
 end
