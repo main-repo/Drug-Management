@@ -5,7 +5,7 @@ end
 post '/home' do
   
   @user = User[:email => params[:user]]
-  binding.pry 
+  
   @username = @user.name
 
   if  BCrypt::Password.new(@user.password) == params[:pass]
