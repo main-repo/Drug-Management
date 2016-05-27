@@ -7,7 +7,7 @@ get '/reg' do
 end
 
 post '/registration' do
-  if User.new(:emailID => params[:emailID]).valid?
+  if User.new(:email => params[:email]).valid?
     params[:password] = BCrypt::Password.create(params[:password])
     p = params
     p = p.delete("cpassword")

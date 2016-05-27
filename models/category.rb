@@ -2,6 +2,6 @@ class Category < Sequel::Model(:categories)
   
   def validate
     super
-    validates_unique(:category_name)
+    validates_unique(:name)
   end
 end
