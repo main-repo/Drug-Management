@@ -1,0 +1,26 @@
+!!!
+%html
+  %head
+    %title Drug Management
+    
+    
+
+  %body
+    #header
+      = partial :index
+      %br
+      %br
+      %br
+      .mycontainer
+        .row
+          %form{:action => "/editDrug", :method => "post"}
+            %br
+            .form-group
+              %input#cat_id.form-control{:placeholder => "Enter Drug ID", :type => "number", :required =>"",:name => "drug_id"}
+              %br
+              %br
+              %button#submit.btn.btn-default{:type => "submit"} Click for Details
+              %button#reset.btn.btn-default{:type => "reset"} Reset
+              - if flash[:error]
+                %p
+                  = flash[:error]

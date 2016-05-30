@@ -15,3 +15,10 @@ post "/create_cat" do
     redirect '/create_cat'
   end
 end
+
+post '/viewAllCategories' do
+  a = Category[params[:category_id]].set(:name=>params[:new_name])
+  a.save_changes
+
+  redirect '/viewAllCategories'
+end

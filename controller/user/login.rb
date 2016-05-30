@@ -4,15 +4,20 @@ end
 
 post '/home' do
   
-  @user = User[:email => params[:user]]
-  
-  @username = @user.name
+  @user = User.first(:email => params[:user])
+  if @user!=nil
 
-  if  BCrypt::Password.new(@user.password) == params[:pass]
-    session[:user] = params[:user]
-    redirect '/index'
+    @username = @user.name
+
+    if  BCrypt::Password.new(@user.password) == params[:pass]
+      session[:user] = params[:user]
+      redirect '/index'
+    else
+    	flash[:error] = "Either of userId or password was wrong."
+      redirect '/home'
+    end
   else
-  	flash[:error] = "Either of userId or password was wrong."
+    flash[:error] = "email Id Not registered."
     redirect '/home'
   end
 end
