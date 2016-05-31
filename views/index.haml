@@ -18,18 +18,18 @@
 				.dropdown-content
 					%a{:href => "/create_cat"} Create Category
 					%a{:href => "/viewAllCategories"} View All Category
-					%a{:href => "/home"} Change Name of Category
+					%a{:href => "/viewAllCategories"} Change Name of Category
 			.dropdown
 				%button.dropbtn Products
 				.dropdown-content
 					%a{:href => "/addNewDrug"} Add New Drug
-					%a{:href => "/home"} Update Drug Detail
+					%a{:href => "/viewDrugs"} View Drugs
+					%a{:href => "/updateDrug"} Update Drug Detail
 			.dropdown
-				%button.dropbtn View Order
+				%button.dropbtn Orders
 				.dropdown-content
-					%a{:href => "/home"} List All Sale-Order
-			.dropdown
-				%button.dropbtn Create Order
-				
+					%a{:href => "/view_orders"} List All Sale-Order
+					%a{:href => "/create_order"} Create Order
+
 	
 					

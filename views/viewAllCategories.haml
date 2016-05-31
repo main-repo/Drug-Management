@@ -2,7 +2,7 @@
 %html
 	%head
 		%title Drug Management
-		
+		%script{:src => "scripts.js"}
 		
 
 	%body
@@ -15,5 +15,13 @@
 				%table{:border=>"1", :style=>"width:40%",:align=>"center"}
 					- @all.each do |one|
 						%tr
-							%td= one[:id]
-							%td= one[:name]
+							%td{ :width =>"10%" }
+								= one[:id]
+							%td{:width =>"60%" }
+								= one[:name]
+							%td{:width =>"30%" }
+								%form{:action => "/viewAllCategories", :method => "post"}
+									.form-group
+										%input{ :type=>"hidden", :name=>"category_id", :value=>"#{one[:id]}"}
+										%input#userid.form-control{:placeholder => "Enter New Name", :type => "text", :required =>"",:name => "new_name"}
+										%button#login.btn.btn-default{:type => "submit"} Edit Name

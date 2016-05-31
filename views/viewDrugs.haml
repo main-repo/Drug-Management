@@ -1,0 +1,47 @@
+!!!
+%html
+  %head
+    %title Drug Management
+    %script{:src => "scripts.js"}
+    
+
+  %body
+    #header
+      = partial :index
+      %br
+      %br
+      %br
+      .align-center
+        %table{:border=>"1", :style=>"width:40%",:align=>"center"}
+          %tr
+            %td{ :width =>"10%" }
+              Drug ID
+            %td{:width =>"20%" }
+              Name
+            %td{:width =>"20%" }
+              Price
+            %td{:width =>"20%" }
+              Quantity 
+            %td
+              Categories
+            %td
+              Edit
+          - @all.each do |drug|
+            %tr
+              %td{ :width =>"10%" }
+                = drug[:id]
+              %td{:width =>"20%" }
+                = drug[:name]
+              %td{:width =>"20%" }
+                = drug[:price]
+              %td{:width =>"20%" }
+                = drug[:quantity] 
+              %td
+                - drug.categories.each do |cat|
+                  =cat.name
+                  , 
+              %td
+                %button{class: "btn btn-primary btn-sm", onclick: "editDrug(this)"} Edit
+                
+
+              
