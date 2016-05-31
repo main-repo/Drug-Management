@@ -14,24 +14,13 @@
 			.mycontainer
 				.row
 					%form{:action => "/addNewDrug", :method => "post"}
-						%br
 						.form-group
 							- if flash[:msg]
 								%p
 									= flash[:msg]
-							Categories :
-							%select
-								- @catg.each do |one|
-									%option{:value => "v11"}= one[:catName]
-							%select
-								- @catg.each do |one|
-									%option{:value => "v21"}= one[:catName]
-							%select
-								- @catg.each do |one|
-									%option{:value => "v31"}= one[:catName]
+							%h2 Give details of the Drug
 							%br
-							%br
-							%input#drug_name.form-control{:placeholder => "drug name", :type => "text", :required =>"",:name => "drug_name"}
+							%input#drug_name.form-control{:placeholder => "drug name", :type => "text", :required =>"",:name => "name"}
 							%br
 							%br
 						.form-group
@@ -41,6 +30,12 @@
 						.form-group
 							%input#cat_id.form-control{:placeholder => "price", :type => "text", :required =>"",:name => "price"}
 							%br
+								Categories :
+								- @cats.each do |one|
+									%input{:name => one[:id] ,:type => "checkbox"}
+										=one[:name]
+										&nbsp &nbsp
+
 							%br
 							%button#submit.btn.btn-default{:type => "submit"} Add
 							%button#reset.btn.btn-default{:type => "reset"} Reset

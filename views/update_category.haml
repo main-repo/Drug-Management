@@ -1,0 +1,19 @@
+!!!
+%html
+  %head
+    %title Update category
+    
+    
+
+  %body
+    #header
+      = partial :index
+      %br
+      %br
+      %br
+      .align-center
+        %table{:border=>"1", :style=>"width:40%",:align=>"center"}
+          - @all.each do |one|
+            %tr
+              %td= one[:id]
+              %td= one[:name]
