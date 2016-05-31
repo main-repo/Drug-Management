@@ -1,0 +1,70 @@
+!!!
+%html
+  %head
+    %title Edit Drug    
+    
+
+  %body
+    #header
+      = partial :index
+      %br
+      %br
+      %br
+      .align-center
+        %table{:border=>"1", :style=>"width:40%",:align=>"center"}
+          %tr
+            %td{ :width =>"10%" }
+              Drug ID
+            %td{:width =>"20%" }
+              Name
+            %td{:width =>"20%" }
+              Price
+            %td{:width =>"20%" }
+              Quantity 
+            %td
+              Categories
+          %tr
+            %td{ :width =>"10%" }
+              = @selected_drug[:id]
+            %td{:width =>"20%" }
+              = @selected_drug[:name]
+            %td{:width =>"20%" }
+              = @selected_drug[:price]
+            %td{:width =>"20%" }
+              = @selected_drug[:quantity] 
+            %td
+              - @selected_drug.categories.each do |cat|
+                =cat.name
+                ,
+            
+      %br
+      %br         
+      .mycontainer
+        .row
+          %h3 Edit Drug
+          %form{:action => "/drug_edit", :method => "post"}
+            .form-group
+              %input#drug_name.form-control{ :type => "hidden", :name => "id", :value => "#{@selected_drug[:id]}"}
+            %br
+            .form-group
+              %input#drug_name.form-control{ :type => "text", :name => "name", :value => "#{@selected_drug[:name]}"} New Name
+            %br
+            .form-group
+              %input#cat_id.form-control{:type => "text", :name => "quantity", :value =>"#{@selected_drug[:quantity]}"} New Quantity
+            %br
+            .form-group
+              %input#cat_id.form-control{ :type => "text", :name => "price", :value =>"#{@selected_drug[:price]}"} New Price
+            .form-group
+              %label
+                Add a category (select one):
+              %select#sel1.form-control{:name =>"new_cat", :multiple => true}
+                - @c = Category.all 
+                - @c.each do |cat| 
+                  %option(value="#{cat[:id]}")= cat.name
+            %br
+              %button#submit.btn.btn-default{:type => "submit"} Submit
+              %button#reset.btn.btn-default{:type => "reset"} Reset
+              - if flash[:error]
+                %p
+                  = flash[:error]
+
