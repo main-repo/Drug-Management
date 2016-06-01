@@ -1,7 +1,7 @@
 require 'pry'
 
 get "/addNewDrug" do
-  @cats = Drug.all
+  @cats = Category.all
   haml :addNewDrug
 end
 
@@ -10,7 +10,7 @@ post "/addNewDrug" do
   if Drug.new(:name =>params[:name]).valid?
 
     d= Drug.create(:name =>params[:name],:quantity =>params[:quantity],:price =>params[:price])
-    binding.pry
+    
     len = params.keys.length
     i=3
     while i < len do

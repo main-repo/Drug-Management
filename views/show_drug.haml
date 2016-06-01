@@ -23,8 +23,7 @@
               Quantity 
             %td
               Categories
-            %td
-              Edit
+
           %tr
             %td{ :width =>"10%" }
               = @selected_drug[:id]
@@ -37,9 +36,7 @@
             %td
               - @selected_drug.categories.each do |cat|
                 =cat.name
-                ,
-            %td
-              Edit 
+
       %br
       %br         
       .mycontainer

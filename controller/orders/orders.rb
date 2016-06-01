@@ -1,4 +1,5 @@
 get '/create_order' do
+	@drugs = Drug.all
   haml :create_order
 end
 
