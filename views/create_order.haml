@@ -3,6 +3,7 @@
   %head
     %title Create Orders
     
+
   %body
     #header
       = partial :index
@@ -11,25 +12,18 @@
       %br
       .mycontainer
         %h1 Create Order
-        %form{:action => "/add_drugs_order", :method => "post"}
+        %form{:action => "/show_drug_ByCategory", :method => "post"}
           %br
           %br
           .form-group
-            %input#cat_id.form-control{:placeholder => "order ID", :type => "number", :required =>"",:name => "order_id"}
+            choose category :
             %br
-          .form-group
-            %input#cat_id.form-control{:placeholder => "name", :type => "number", :required =>"",:name => "user_name"}
-          .form-group
-            %br
-              %select{:name => "drug"}
-                - @drugs.each do |one|
-                  %option{:value => one[:id]}= one[:name]
-          .form-group
-            %input#quantity.form-control{:placeholder => "quantity", :type => "number", :required =>"",:name => "quantity"}
-            %br
-            %button{class: "btn btn-primary btn-sm", onclick: "add_drug(drug_table)"} Add Drug
-            %table{:border=>"1", :style=>"width:40%",:align=>"center",:id=>"drug_table"}
-            - if flash[:error]
-              %p
-                = flash[:error]
+            - @category.each do |catg|
+              %input{:name => "s1", :type => "radio", :value => catg[:id]}= catg[:name]
+              %br
+                
+          %button#submit.btn.btn-default{:type => "submit"} Show Drug
+          - if flash[:error]
+            %p
+              = flash[:error]
                 
