@@ -15,3 +15,6 @@ post '/view_orders' do
   puts "orders Hidden LOL" 
 end
 
+get '/cart' do
+  haml :cart
+end
