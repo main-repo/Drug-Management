@@ -18,7 +18,7 @@
       cell3.appendChild(element2);
       }
     
-    
+  
 
   %body
     #header
@@ -32,7 +32,7 @@
           %br
           %br
           .form-group
-            %input#cat_id.form-control{:placeholder => "order ID", :type => "number", :required =>"",:name => "order_id"}
+            %input#cat_id.form-control{:placeholder => "Order ID", :type => "number", :required =>"",:name => "order_id"}
             %br
           .form-group
             %input#cat_id.form-control{:placeholder => "name", :type => "number", :required =>"",:name => "user_name"}
@@ -49,4 +49,7 @@
             - if flash[:error]
               %p
                 = flash[:error]
-                
+      .mycontainer
+        %h1 Cart 
+        %a{:href => "cart"} go to Cartpage 
+
