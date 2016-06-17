@@ -1,6 +1,13 @@
 get '/create_order' do
-	@drugs = Drug.all
-  haml :create_order
+	@category = Category.all
+	haml :create_order
+end
+
+post '/show_drug_ByCategory' do
+	@temp = params[:s1].to_i
+	@drugs = Category[@temp].drugs
+	@catname = Category[@temp].name
+	haml :show_drug_ByCategory
 end
 
 post '/create_order' do

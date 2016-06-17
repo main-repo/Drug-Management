@@ -1,6 +1,6 @@
-get "/viewAllCategories" do
+get "/changeCategories" do
   @all = Category.all
-  haml :viewAllCategories
+  haml :changeCategories
 end
 
 
@@ -16,9 +16,14 @@ post "/create_cat" do
   end
 end
 
-post '/viewAllCategories' do
+post '/changeCategories' do
   a = Category[params[:category_id]].set(:name=>params[:new_name])
   a.save_changes
 
-  redirect '/viewAllCategories'
+  redirect '/changeCategories'
 end
+
+get "/viewAllCategories" do
+  @all = Category.all
+  haml :viewAllCategories
+end 

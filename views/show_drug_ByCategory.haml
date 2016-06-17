@@ -1,0 +1,40 @@
+!!!
+%html
+  %head
+    %title Create Orders
+    
+  %body
+    #header
+      = partial :index
+      %br
+      %br
+      .mycontainer
+        %h1 Create Order
+        category name = #{@catname}
+        %br
+        %br
+        %table{:border=>"1", :style=>"width:40%",:align=>"center"}
+          %tr
+            %td{ :width =>"10%" }
+              Drug ID
+            %td{:width =>"20%" }
+              Name
+            %td{:width =>"20%" }
+              Price
+            %td{:width =>"20%" }
+              Quantity 
+            %td
+
+          - @drugs.each do |drug|
+            %tr
+              %td{ :width =>"10%" }
+                = drug[:id]
+              %td{:width =>"20%" }
+                = drug[:name]
+              %td{:width =>"20%" }
+                = drug[:quantity]
+              %td{:width =>"20%" }
+                = drug[:price]
+              %td
+                %button#add.btn.btn-default{:type => "submit",class: "btn btn-primary btn-sm"} Add To Cart
+                
