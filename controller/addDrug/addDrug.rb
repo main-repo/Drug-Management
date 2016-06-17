@@ -33,6 +33,7 @@ get "/viewDrugs" do
 end
 
 post "/viewDrugs" do
+  
   @all = Drug.all
   redirect 'viewDrugs'
 end
