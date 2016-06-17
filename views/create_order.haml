@@ -3,21 +3,13 @@
   %head
     %title Create Orders
     :javascript
-      function addRow(tableID) {
-      var table = document.getElementById(tableID);
-      var rowCount = table.rows.length;
-      var row = table.insertRow(rowCount);
-      var cell1 = row.insertCell(1);
-      cell1.innerHTML = rowCount + 1;
-      var cell2 = row.insertCell(1);
-      cell2.innerHTML = rowCount + 1;
-      var cell3 = row.insertCell(2);
-      var element2 = document.createElement("input");
-      element2.type = "text";
-      element2.name = "txtbox[]";
-      cell3.appendChild(element2);
+      function show_drug() {
+
+      var e = document.getElementById("cat");
+      var catg = e.options[e.selectedIndex].text;
+
+      return catg
       }
-    
     
 
   %body
@@ -28,25 +20,18 @@
       %br
       .mycontainer
         %h1 Create Order
-        %form{:action => "/add_drugs_order", :method => "post"}
+        %form{:action => "/show_drug_ByCategory", :method => "post"}
           %br
           %br
           .form-group
-            %input#cat_id.form-control{:placeholder => "order ID", :type => "number", :required =>"",:name => "order_id"}
+            choose category :
             %br
-          .form-group
-            %input#cat_id.form-control{:placeholder => "name", :type => "number", :required =>"",:name => "user_name"}
-          .form-group
-            %br
-              %select{:name => "drug"}
-                - @drugs.each do |one|
-                  %option{:value => one[:id]}= one[:name]
-          .form-group
-            %input#quantity.form-control{:placeholder => "quantity", :type => "number", :required =>"",:name => "quantity"}
-            %br
-            %button{class: "btn btn-primary btn-sm", onclick: "add_drug(drug_table)"} Add Drug
-            %table{:border=>"1", :style=>"width:40%",:align=>"center",:id=>"drug_table"}
-            - if flash[:error]
-              %p
-                = flash[:error]
+            - @category.each do |catg|
+              %input{:name => "s1", :type => "radio", :value => catg[:id]}= catg[:name]
+              %br
+                
+          %button#submit.btn.btn-default{:type => "submit"} Show Drug
+          - if flash[:error]
+            %p
+              = flash[:error]
                 
