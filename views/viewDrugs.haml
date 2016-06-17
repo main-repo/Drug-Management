@@ -37,11 +37,13 @@
               %td{:width =>"20%" }
                 = drug[:quantity] 
               %td
-                - drug.categories.each do |cat|
-                  =cat.name
-                  , 
+                - a=[]
+                - drug.categories.each do |x|
+                  - a.push(x.name)
+                =a.map{|x| x}.join(", ")
+                 
               %td
                 %button{class: "btn btn-primary btn-sm", onclick: "editDrug(this)"} Edit
                 
 
-              
+                      

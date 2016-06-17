@@ -1,0 +1,24 @@
+:javascript
+  simpleCart.email = "you@yours.com";
+
+%div
+  %a{:href => "javascript:#", :onclick => "simpleCart.add( 'name=Awesome t-shirt' , 'price=35.95' , 'quantity=1' );"} Add To Cart
+
+  %a{:href => "javascript:#", :onclick => "simpleCart.add( 'name=Awesome t-shirt2' , 'price=3.95' , 'quantity=1' );"} Add To Cart
+%hr
+%div
+  You have
+  %span.simpleCart_quantity
+  items in your Cart.
+%hr
+%div  
+  Cart total:
+  .simpleCart_total
+%hr
+  %p.simpleCart_items
+
+%div
+  %a.simpleCart_checkout{:href => "/cart"} Checkout
+%div
+  %a.simpleCart_empty{:href => "/cart"} Empty
+%hr

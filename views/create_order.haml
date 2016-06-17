@@ -2,6 +2,7 @@
 %html
   %head
     %title Create Orders
+
     
 
   %body
@@ -15,7 +16,7 @@
         %form{:action => "/show_drug_ByCategory", :method => "post"}
           %br
           %br
-          .form-group
+          
             choose category :
             %br
             - @category.each do |catg|
@@ -27,3 +28,4 @@
             %p
               = flash[:error]
                 
+
