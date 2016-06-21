@@ -54,3 +54,9 @@
 table, th, td {
     border: 1px solid black;
 }
+
+.display{
+    height:200px;
+    width:100px;
+    border: dashed gray; 
+}

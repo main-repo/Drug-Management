@@ -1,5 +1,6 @@
 get "/changeCategories" do
   @all = Category.all
+  binding.pry
   haml :changeCategories
 end
 

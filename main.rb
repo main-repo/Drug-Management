@@ -2,6 +2,7 @@ require 'sinatra'
 require 'haml'
 require 'pry'
 require 'sinatra/flash'
+require "sinatra/json"
 require 'sequel'
 require 'bcrypt'
 require 'sinatra/partial'

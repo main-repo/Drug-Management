@@ -2,18 +2,16 @@
 %html
   %head
     %title Create Orders
-    
+    / %link{:href => "main.js"}
 
   %body
     #header
       = partial :index
       %br
       %br
-      %br
       .mycontainer
         %h1 Create Order
         %form{:action => "/show_drug_ByCategory", :method => "post"}
-          %br
           %br
           .form-group
             choose category :
@@ -22,8 +20,13 @@
               %input{:name => "s1", :type => "radio", :value => catg[:id]}= catg[:name]
               %br
                 
-          %button#submit.btn.btn-default{:type => "submit"} Show Drug
+          %button#submit.btn.btn-default{:type=>"button",:onclick => "loadJSON(event,s1)"} Show Drug
+        %br
+        %br
+        %table{:border=>"1", :style=>"width:40%",:align=>"center",:id => "display"}
+          
           - if flash[:error]
             %p
               = flash[:error]
-                
+         
+           

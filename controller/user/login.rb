@@ -38,3 +38,8 @@ def login?
     return true
   end
 end
+
+get '/sample' do
+  result = {first_name: "Satya", last_name: "Gandham"}
+  json Category.all
+end
